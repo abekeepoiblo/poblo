@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Просмотр фильма</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Просмотр фильма</h1>
+        <a href="index.html">← Назад</a>
+    </header>
+
+    <main>
+        <div class="video-container">
+            <video id="moviePlayer" controls>
+                <source id="movieSource" src="" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+        </div>
+    </main>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const movieId = urlParams.get("movie");
+        const movieSource = document.getElementById("movieSource");
+
+        if (movieId === "1") {
+            movieSource.src = "movie1.mp4";
+        } else if (movieId === "2") {
+            movieSource.src = "movie2.mp4";
+        }
+
+        document.getElementById("moviePlayer").load();
+    </script>
+</body>
+</html>
